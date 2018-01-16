@@ -1,0 +1,14 @@
+" .vimrc
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-plug 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+source ~/.vim_bundles.vim
+
+
+function! InstallMe() 
+    :PlugInstall
+    :PlugUpdate
+    :qa!    
+endfunction 
