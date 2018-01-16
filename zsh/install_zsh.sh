@@ -6,9 +6,11 @@ if [ "$1" = "all" ]; then
 fi
 
 if [ "$1" = "install" ]; then
-    sudo apt-get -y install zsh
-    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh 
-    sudo chsh -s $(which zsh) $(whoami) #change login shell 
+    #sudo apt-get -y install zsh
+    brew install zsh zsh-completions
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    #git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh 
+    #sudo chsh -s $(which zsh) $(whoami) #change login shell 
 fi
 
 if [ "$1" = "link_dotfile" ]; then
