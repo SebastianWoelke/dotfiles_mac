@@ -20,21 +20,26 @@ fi
 
 if [ "$1" = "preperation" ]; then  
   mkdir tmp
-  sudo apt install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
-  sudo apt install -y python-dev python-pip python3-dev python3-pip
-  sudo apt install -y xclip
-  sudo pip2 install --upgrade pip
-  sudo pip3 install --upgrade pip
+  brew update
+  brew upgrade neovim
+  brew install python3
+
+  #sudo apt install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+  #sudo apt install -y python-dev python-pip python3-dev python3-pip
+  #sudo apt install -y xclip
+  pip2 install --upgrade pip
+  pip3 install --upgrade pip
 fi
 
 if [ "$1" = "install_neovim" ]; then  
-  git clone https://github.com/neovim/neovim tmp/neovim
-  cd tmp/neovim
-  make CMAKE_BUILD_TYPE=Release
-  sudo make install
+  brew install neovim
+  #git clone https://github.com/neovim/neovim tmp/neovim
+  #cd tmp/neovim
+  #make CMAKE_BUILD_TYPE=Release
+  #sudo make install
   # Add python suport #
-  sudo pip2 install --upgrade neovim
-  sudo pip3 install --upgrade neovim
+  pip2 install --upgrade neovim
+  pip3 install --upgrade neovim
 fi
 
 if [ "$1" = "vim_plug" ]; then  
@@ -61,14 +66,15 @@ if [ "$1" = "set_init_rc" ]; then
 fi
 
 if [ "$1" = "install_gui" ]; then
-  sudo apt install -y qt5-default 
+  #sudo apt install -y qt5-default 
   git clone https://github.com/equalsraf/neovim-qt tmp/neovim-qt
   cd tmp/neovim-qt
   mkdir build
   cd build
-  cmake -DCMAKE_BUILD_TYPE=Release ..
+  cmake -DCMAKE_INSTALL_PREFIX:PATH=~/Applications -DCMAKE_INSTALL_BINDIR:PATH="." -DCMAKE_BUILD_TYPE=Release ..
   make
-  sudo make install
+  make install
+  ln -s ~/Applications/nvim-qt.app/Contents/MacOS/nvim-qt /usr/local/bin
 fi
 
 if [ "$1" = "swap_directory" ]; then

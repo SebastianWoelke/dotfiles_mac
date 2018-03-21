@@ -118,34 +118,34 @@ endfunction
 autocmd! BufEnter * if &buftype == 'terminal' | startinsert | endif
 
 " ESC in terminal
-tnoremap <A-Esc> <C-\><C-n>
+tnoremap <C-Esc> <C-\><C-n>
 " move left, right, up, down
-tnoremap <A-h> <C-\><C-n><C-w>h 
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-noremap <A-h> <C-w>h
-noremap <A-j> <C-w>j
-noremap <A-k> <C-w>k
-noremap <A-l> <C-w>l
-inoremap <A-h> <ESC><C-w>h
-inoremap <A-j> <ESC><C-w>j
-inoremap <A-k> <ESC><C-w>k
-inoremap <A-l> <ESC><C-w>l
+tnoremap <C-h> <C-\><C-n><C-w>h 
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+inoremap <C-h> <ESC><C-w>h
+inoremap <C-j> <ESC><C-w>j
+inoremap <C-k> <ESC><C-w>k
+inoremap <C-l> <ESC><C-w>l
 " open terminal in a new tab, horizontal split and vertical split
 " enew | call termopen('...') | startinsert
-nnoremap <A-t> :tabe<CR>:terminal<CR>
-nnoremap <A-o> :new<CR>:terminal<CR>
-nnoremap <A-e> :vnew<CR>:terminal<CR>
-inoremap <A-t> <ESC>:tabe<CR>:terminal<CR>
-inoremap <A-o> <ESC>:new<CR>:terminal<CR>
-inoremap <A-e> <ESC>:vnew<CR>:terminal<CR>
-tnoremap <A-t> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:tabe<CR>:terminal<CR>
-tnoremap <A-o> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:new<CR>:terminal<CR>
-tnoremap <A-e> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:vnew<CR>:terminal<CR>
+nnoremap <Leader>t :tabe<CR>:terminal<CR>
+nnoremap <Leader>o :new<CR>:terminal<CR>
+nnoremap <Leader>e :vnew<CR>:terminal<CR>
+inoremap <Leader>t <ESC>:tabe<CR>:terminal<CR>
+inoremap <Leader>o <ESC>:new<CR>:terminal<CR>
+inoremap <Leader>e <ESC>:vnew<CR>:terminal<CR>
+tnoremap <Leader>t <C-\><C-n>:call DoLcdToCurrentPath()<CR>:tabe<CR>:terminal<CR>
+tnoremap <Leader>o <C-\><C-n>:call DoLcdToCurrentPath()<CR>:new<CR>:terminal<CR>
+tnoremap <Leader>e <C-\><C-n>:call DoLcdToCurrentPath()<CR>:vnew<CR>:terminal<CR>
 " paste buffer to command line
 " temporary fix for https://github.com/equalsraf/neovim-qt/issues/215
-tnoremap <A-v> <C-\><C-n>"+pi
+tnoremap <Leader>v <C-\><C-n>"+pi
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -174,7 +174,7 @@ let g:nerdtree_plugin_open_cmd = g:myOpenCmd
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => clang-format
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:clang_format_path = "clang-format-3.8"
+let g:clang_format_path = "clang-format"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

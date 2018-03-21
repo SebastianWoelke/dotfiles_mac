@@ -68,7 +68,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
@@ -90,26 +90,26 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 ##################
 
 ##-- man in vim --##
-vman() {
+#vman() {
     #run command SuperMan and add opend manual to arglist 
     #this is nessasary to prevent NERDTree from pop-up
-    vim -c "SuperMan $*" -c "argadd %" 
+#    vim -c "SuperMan $*" -c "argadd %" 
 
-    if [ "$?" != "0" ]; then
-        echo "No manual entry for $*"
-    fi
-}
+#    if [ "$?" != "0" ]; then
+#        echo "No manual entry for $*"
+#    fi
+#}
 
 setopt interactivecomments #activate the bash-syle comments, you can run a command with a comment
 
 ##-- latex bib path --##
-export BIBINPUTS=/bib/:./
+#export BIBINPUTS=/bib/:./
 
 ##-- vim color support --##
 export TERM=xterm-256color
 
 ##-- generic open cmd --##
-alias o='gnome-open'
+alias o='open'
 
 ##-- git shortcuts --##
 alias gs='git status'
@@ -128,18 +128,25 @@ alias vt="execute_me 'nvr --remote-send \"<C-\\><C-n>:call DoLcdToCurrentPath()<
 alias vg='nvim-qt'
 
 ##-- other stuff --##
-alias logout='gnome-session-quit'
-alias rm='trash'
-
-##-- Keyboard --##
-numlockx on # actrivate the nummber block 
+#alias logout='gnome-session-quit'
+#alias rm='trash'
 
 ##-- Makefile --##
 #run make with flag -j<number of processors>
-export MAKEFLAGS="-j$(cat /proc/cpuinfo | grep processor | wc | awk '{ print $1 }')"
+export MAKEFLAGS="-j$(sysctl -n hw.ncpu)"
 
 ##-- python auto environement --##
-source ~/.autoenv/activate.sh
+#source ~/.autoenv/activate.sh
 
 ##-- folder for go scripts --##
-export GOPATH=~/gocode #needed by the go compiler e.g. go get github.com/svent/sift
+#export GOPATH=~/gocode #needed by the go compiler e.g. go get github.com/svent/sift
+
+
+##-- Environment variables --##
+#needed to use nvr 
+export PATH=$PATH:$(python3 -c 'import site; print(site.USER_BASE)')/bin
+
+# bro test
+export PATH=$PATH:/usr/local/bro/bin
+
+

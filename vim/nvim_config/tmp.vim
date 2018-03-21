@@ -5,7 +5,7 @@ function! Test()
   "echom a:firstline . ':' . a:lastline
   echo "bobbobobobo"
 endfunction 
-"noremap <F4> :call TestFunction() <CR>
+"noremap <F4> :call Test() <CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
